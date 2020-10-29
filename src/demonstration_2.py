@@ -18,4 +18,33 @@ when we know the value we are counting will always be non-negative."
 """
 def hamming_weight(n):
     # Your code here
+    # solution one
+    #  if were given an unsigned int, convert it to bitwise representation
+    # logical operators: `&&`, `||`
+    # vs bitwise logical operators: `&`, `\`
+        # `&` will compare if the last spots (in bitwise notation) matches
+        #ie: its a way to check the rightmost bit of n, to see if it's 1.
+    #other bitwise: the left and right shift operations
+        # << or >>
+        # >> lets  us "move" the bitwise digits ober one spot to the right
+    #if `&` on the rightmost returns a 1, increase a counter
+    # >> by 1 bitwise digit
+    counter = 0
+    # when do we stop right shifing
+    while n != 0:
+        if n & 1 == 1:
+            counter += 1
+        n = n >> 1
+    return counter
+        # well, everytime we shift, it adds a zero at the first point, and eventually the decimal number will be zero
 
+    # solution 2
+    counter = 0
+    bin_representation = bin(n)
+    for i in range(length(bin_representation)):
+        if bin_representation[i] == "1":
+            counter += 1
+    return counter
+
+    # solution 3
+    return bin(n).count('1')

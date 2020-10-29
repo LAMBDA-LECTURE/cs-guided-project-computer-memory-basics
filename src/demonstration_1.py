@@ -22,5 +22,18 @@ string objects in Python. Think about how character encoding works and explore
 if there is a mathematical approach that you can take.*
 """
 def to_lower_case(string):
-    # Your code here
+    output = ""
+    for letter in string:
+        ord_letter = ord(letter)
+        if ord_letter < 90: # if it's capital
+            output += chr(ord_letter + 32)
+        else:
+            output += chr(ord_letter)
+    print(output)
 
+
+
+to_lower_case("alTESTpabet")
+# to_lower_case("A")
+# to_lower_case("b")
+# to_lower_case("B")
